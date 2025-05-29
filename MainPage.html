@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animal Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body id="darkMode" style="margin: 0" class="bg-gray-100 text-gray-800">
+    <style>
+      .listCart .item:nth-child(even) {
+        background-color: #eee1;
+      }
+    </style>
+    <!-- Navbar -->
+    <nav
+      class="bg-gradient-to-r from-blue-500 to-purple-600 fixed top-0 left-0 w-full shadow-lg p-4 flex justify-between items-center z-50"
+    >
+      <div class="text-xl font-bold text-white">
+Animal Bazaar
+      </div>
+
+      <button id="menu-toggle" class="md:hidden block text-white text-2xl">
+        ☰
+      </button>
+
+      <ul id="nav-menu" class="md:flex space-x-6 hidden md:items-center">
+        <li>
+          <a
+            href="#"
+            class="text-white hover:text-yellow-300 transition duration-200"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            href="admin.html"
+            class="text-white hover:text-yellow-300 transition duration-200"
+            >Form</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            class="text-white hover:text-yellow-300 transition duration-200"
+            >Contact</a
+          >
+        </li>
+        <li>
+          <button
+            id="logout"
+            class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded transition duration-200"
+          >
+            Logout
+          </button>
+        </li>
+      </ul>
+
+      <div id="iconCart" class="icon-cart relative z-20 pl-2 flex mr-20">
+        <svg
+          class="text-white"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"
+          />
+        </svg>
+        <span
+          id="itemsInCart"
+          class="flex justify-center items-center text-white rounded-full absolute top-[50%] left-6 w-6 h-6 text-xs bg-red-600"
+        >
+          0
+        </span>
+      </div>
+    </nav>
+
+    <!-- Navbar -->
+
+    <!-- Landing Header -->
+    <header class="text-center my-28">
+      <h1 class="text-4xl font-bold mb-4">Discover & Book Animals</h1>
+      <div class="flex justify-center ml-[-170px] space-x-4 flex-wrap">
+        <div class="scene">
+          <div class="cube" id="goatBtn">
+            <span class="side top">Happy EID</span>
+            <span class="side front">GOAT</span>
+          </div>
+        </div>
+
+        <div class="scene">
+          <div class="cube" id="bullBtn">
+            <span class="side top">Happy EID</span>
+            <span class="side front">BULL</span>
+          </div>
+        </div>
+
+        <div class="scene">
+          <div class="cube" id="camelBtn">
+            <span class="side top">Happy EID</span>
+            <span class="side front">CAMEL</span>
+          </div>
+        </div>
+
+        <div class="scene">
+          <div class="cube" id="clear">
+            <span class="side top">Happy EID</span>
+            <span class="side front">CLEAR</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div id="loader" class="flex justify-center m-4 mt-40">
+      <div
+        aria-label="Orange and tan hamster running in a metal wheel"
+        role="img"
+        class="wheel-and-hamster"
+      >
+        <div class="wheel"></div>
+        <div class="hamster">
+          <div class="hamster__body">
+            <div class="hamster__head">
+              <div class="hamster__ear"></div>
+              <div class="hamster__eye"></div>
+              <div class="hamster__nose"></div>
+            </div>
+            <div class="hamster__limb hamster__limb--fr"></div>
+            <div class="hamster__limb hamster__limb--fl"></div>
+            <div class="hamster__limb hamster__limb--br"></div>
+            <div class="hamster__limb hamster__limb--bl"></div>
+            <div class="hamster__tail"></div>
+          </div>
+        </div>
+        <div class="spoke"></div>
+      </div>
+    </div>
+    <!-- Cards Section -->
+    <section id="menu" class="bg-white hidden">
+      <div class="container px-4">
+        <div id="animalContainer" class="flex justify-center flex-wrap gap-20">
+          <!-- Dynamic animal cards go here -->
+        </div>
+      </div>
+    </section>
+    <div
+      class="cartTab w-[400px] bg-black text-white fixed top-0 bottom-0 grid [grid-template-rows:70px_1fr_70px]"
+      id="cartTab"
+      style="right: -400px"
+    >
+      <h1 class="p-5 m-0 font-serif font-normal">SHOOPING LIST</h1>
+      <div class="listCart overflow-auto">
+        <div
+          class="item grid [grid-template-columns:70px_150px_50px_1fr] gap-3 p-1 my-1 text-center items-center"
+        ></div>
+      </div>
+      <div class="btn grid [grid-templete-columns: repeat(2, 1fr)]">
+        <button
+          id="close"
+          class="bg-white text-black border-0 font-serif font-medium"
+        >
+          Close
+        </button>
+        <button
+          id="checkoutBtn"
+          class="bg-orange-500 border-0 font-serif font-medium"
+        >
+          check Out
+        </button>
+      </div>
+    </div>
+
+    <!-- JavaScript for Navbar Toggle -->
+    <script src="navbar.js" type="module"></script>
+    <script src="app.js" type="module"></script>
+    <script src="main.js" type="module"></script>
+  </body>
+</html>
